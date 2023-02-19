@@ -3,9 +3,9 @@
 * Include
 *----------------------------------------------------------------
 #ifdef Lay
-.include ../../../work/lpe/RPLY_EX0_lpe.spi
+.include ../../../work/lpe/RPLY_EXTEMP0_lpe.spi
 #else
-.include ../../../work/xsch/RPLY_EX0.spice
+.include ../../../work/xsch/RPLY_EXTEMP0.spice
 #endif
 
 *-----------------------------------------------------------------
@@ -23,13 +23,15 @@
 *-----------------------------------------------------------------
 * FORCE
 *-----------------------------------------------------------------
-VSS  VSS  0     dc 0
-VDD  VDD_1V8  VSS  pwl 0 0 10n {AVDD}
+VSS  VSS  0 dc 0
+*VDD  VDD_1V8  VSS  pwl 0 0 10n {AVDD}
+VDD VDD 0 dc 3
+V1 V1 0 dc 0
 
 *-----------------------------------------------------------------
 * DUT
 *-----------------------------------------------------------------
-XDUT  RPLY_EX0
+XDUT VDD VSS VSS RPLY_EXTEMP0
 
 *----------------------------------------------------------------
 * MEASURES
@@ -43,7 +45,7 @@ XDUT  RPLY_EX0
 #ifdef Debug
 .save all
 #else
-.save 
+.save v(VDD) v(VSS) v(v.xdut.V1) i(v.xdut.V1)
 #endif
 
 *----------------------------------------------------------------

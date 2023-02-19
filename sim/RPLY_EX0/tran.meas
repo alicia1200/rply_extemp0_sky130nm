@@ -4,6 +4,10 @@
 load {cicname}.raw
 
 echo "MEAS_START"
+*let v(res) = v(res)
+*meas tran vV1 find v(v.xdut.V1) at=9.7n
+meas tran iV1 find i(v.xdut.V1) at=9.7n
+meas tran vdd find v(VDD) at=9.7n
 
 echo "MEAS_END"
 .endc
