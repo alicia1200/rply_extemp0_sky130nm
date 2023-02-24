@@ -208,8 +208,8 @@ C {devices/lab_pin.sym} -50 -570 1 0 {name=p7 sig_type=std_logic lab=res
 }
 C {devices/ipin.sym} 50 -380 0 0 {name=p5 lab=VSS}
 C {devices/vsource.sym} 50 -540 0 0 {name=V1 value=0}
-C {sky130_fd_pr/res_generic_l1.sym} 50 -430 0 0 {name=R1
-W=1
-L=150
-model=res_generic_l1
-mult=1}
+C {devices/res.sym} 50 -430 0 0 {name=R1
+value=150k
+footprint=1206
+device=resistor
+m=1}
